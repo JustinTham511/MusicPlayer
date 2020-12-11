@@ -43,5 +43,12 @@ public class Midi {
 			}
 		} catch (InterruptedException interruptedException) {}
 	}
+	
+	public static void main(String[] args) {
+		Midi midi = new Midi();
+		int[] notes = new int[] {65, 70, 80, 90};
+		midi.setInstrument(40);
+		midi.play(notes,  500);
+	}
 }
 
