@@ -24,7 +24,7 @@ public class Midi {
 		try {
 			channel.programChange(instNum);
 		} catch (Exception ex) {
-			System.out.println("Invalid Instrument");
+			System.out.println("Error: Invalid Instrument");
 		}
 		
 	}
@@ -43,12 +43,11 @@ public class Midi {
 			}
 		} catch (InterruptedException interruptedException) {}
 	}
-	
-	public static void main(String[] args) {
-		Midi midi = new Midi();
-		int[] notes = new int[] {65, 70, 80, 90};
-		midi.setInstrument(40);
-		midi.play(notes,  500);
-	}
+
+	// public static void main(String[] args) {
+	// 	Midi midi = new Midi();
+	// 	int[] notes = new int[]{64, 64, 65, 66, 67};
+	// 	midi.playChord(notes, 500);
+	// }
 }
 

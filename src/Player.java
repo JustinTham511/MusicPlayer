@@ -7,7 +7,6 @@ public class Player {
     private List<String[]> allInput;
     private List<Integer> durations;
     private Midi midi;
-    private int accidental;
 
     public Player() {
         // Initializations
@@ -16,19 +15,24 @@ public class Player {
         this.midi = new Midi();
     }
 
-    // Takes user input and passes to play or instruments method.
+    // Takes user input and passes to play and instruments methods.
     public void initialize() {
         Scanner console = new Scanner(System.in);
         System.out.println("Select Instrument Number (Type 'list' for list of instruments): ");
         String input = console.nextLine();
         instruments(input);
+
         // Once instrument is chosen
         System.out.println("Input Song: ");
         input = console.nextLine();
-        play(input);
+        while (!input.equals("exit")) {
+            play(input);
+            System.out.println("Input Song: ");
+            input = console.nextLine();
+        }
     }
     
-    // List of possible MIDI instruments.
+    // Displays list of possible MIDI instruments and handles selection of midi instrument.
     public void instruments(String input) {
         Scanner console = new Scanner(System.in); 
         if (input.equals("list")) {
@@ -66,7 +70,7 @@ public class Player {
  	
         int instrument = Integer.parseInt(input);
         while (instrument < 0 || instrument > 127) {
-            System.out.println("Invalid Instrument");
+            System.out.println("Invalid Instrument. Please type a number between 0 and 127.");
             instrument = Integer.parseInt(console.nextLine());
         } 
         midi.setInstrument(instrument);
