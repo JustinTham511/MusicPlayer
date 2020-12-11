@@ -31,7 +31,7 @@ public class Midi {
 
 	public void play(int[] notes, int duration) {
 		try {
-			System.out.println(notes.toString());
+			System.out.println("Playing...");
 			for (int i = 0; i < notes.length; i++) {
 				int note = notes[i];
 				channel.noteOn(note, 64);
