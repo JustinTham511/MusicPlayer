@@ -4,14 +4,10 @@ import javax.sound.midi.*;
 public class Player {
 
     // Fields
-    private List<String[]> allInput;
-    private List<Integer> durations;
     private Midi midi;
 
     public Player() {
         // Initializations
-        this.allInput = new ArrayList<String[]>();
-        this.durations = new ArrayList<Integer>();
         this.midi = new Midi();
     }
 
@@ -78,6 +74,8 @@ public class Player {
 
     // Interprets input (notes, durations, chords, accidentals and octaves) and plays the notes.  
     public void play(String input) {
+        List<String[]> allInput = new ArrayList<String[]>();
+        List<Integer> durations = new ArrayList<Integer>();
         String[] inputSplitter = input.split(" ");
 
         // Adding all the notes and durations to ArrayLists
